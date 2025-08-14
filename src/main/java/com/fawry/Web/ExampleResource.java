@@ -1,4 +1,4 @@
-package com.fawry;
+package com.fawry.Web;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
