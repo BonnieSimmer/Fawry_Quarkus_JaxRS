@@ -1,12 +1,14 @@
 package com.fawry.Repository;
 
 import com.fawry.StoreManager.Product;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@ApplicationScoped
 public class ProductRepository {
     // i used thread-safe classes to ensure that the repository can handle concurrent access
     private ConcurrentHashMap<Integer, Product> inventory = new ConcurrentHashMap<>();
