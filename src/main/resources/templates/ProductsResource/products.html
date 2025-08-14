@@ -25,7 +25,7 @@
         <h3 class="text-center">List of Products</h3>
         <hr>
         <div class="container text-left">
-            <a href="/add" class="btn btn-success">Add Product</a>
+            <a href="/form" class="btn btn-success">Add Product</a>
         </div>
         <br>
         <table class="table table-bordered">
@@ -42,13 +42,13 @@
             {#for product in products}
                 <tr>
                     <td>{product.id}</td>
-                    <td>{product.name}/td>
+                    <td>{product.name}</td>
                     <td>{product.price}</td>
                     <td>{product.quantity}</td>
                     <td>
-                        <a href="update?id=<c:out value='${product.id}' />">Update</a>
+                        <a href="/form?id={product.id}">Update</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="delete?id=<c:out value='${product.id}' />">Delete</a>
+                        <a href="/delete/{product.id}">Delete</a>
                     </td>
                 </tr>
             {/for}

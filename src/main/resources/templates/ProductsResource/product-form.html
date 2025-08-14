@@ -23,42 +23,28 @@
 <div class="container col-md-5">
     <div class="card">
         <div class="card-body">
-            <%--@elvariable id="product" type="com.fawry.StoreManager.Product"--%>
-            <c:if test="${product != null}">
-                <form action="edit" method="post">
-            </c:if>
-            <c:if test="${product == null}">
-                <form action="insert" method="post">
-            </c:if>
+            <form method="post" action="{action}">
             <caption>
                 <h2>
-                    <c:if test="${product != null}">
-                        Update Product
-                    </c:if>
-                    <c:if test="${product == null}">
-                        Add Product
-                    </c:if>
+                    {#if isUpdate}Update Product{#else}Add Product{/if}
                 </h2>
             </caption>
-            <c:if test="${product != null}">
-                <input type="hidden" name="id" value="${product.id}">
-            </c:if>
             <fieldset class="form-group">
                 <label for="name">
                     Name
-                    <input type="text" class="form-control" name="name" required="required" value="<c:out value='${product.name}' />">
+                    <input type="text" class="form-control" name="name" required="required" value="{product.name}">
                 </label>
             </fieldset>
             <fieldset class="form-group">
                 <label for="price">
                     Price
-                    <input type="number" step="any" class="form-control" name="price" required="required" value="<c:out value="${product.price}" />">
+                    <input type="number" step="any" class="form-control" min="1" name="price" required="required" {#if isUpdate} value="{product.price}" {/if}>
                 </label>
             </fieldset>
             <fieldset class="form-group">
                 <label for="quantity">
                     Quantity
-                    <input type="number" class="form-control" name="quantity" required="required" value="<c:out value="${product.quantity}" />">
+                    <input type="number" min="1" class="form-control" name="quantity" required="required" {#if isUpdate} value="{product.quantity}" {/if}>
                 </label>
             </fieldset>
             <button type="submit" class="btn btn-success">Submit</button>

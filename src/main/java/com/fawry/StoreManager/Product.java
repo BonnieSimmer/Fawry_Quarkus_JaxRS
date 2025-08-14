@@ -12,6 +12,13 @@ public class Product {
         this.price = price;
         this.quantity = quantity;
     }
+    public Product() {
+        this.id = 0;
+        this.name = "";
+        this.price = 0.0;
+        this.quantity = 0;
+    }
+
     public int getId() {
         return id;
     }
