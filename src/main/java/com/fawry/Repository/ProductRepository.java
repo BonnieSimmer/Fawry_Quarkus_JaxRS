@@ -16,6 +16,11 @@ public class ProductRepository {
 
     // Singleton instance
     private static ProductRepository instance;
+    private ProductRepository() {
+        // Private constructor to prevent instantiation
+        addProduct("Test1", 10.25, 3500);
+        addProduct("Test2", 20, 250);
+    }
 
     public static ProductRepository getInstance() {
         if (instance == null) {
